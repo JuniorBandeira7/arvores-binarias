@@ -1,32 +1,7 @@
-class Node():
-    def __init__(self, node):
-        self.value = node
-        self.esquerda = None#menor
-        self.direita = None#maior
-    
-class BSTree():
-    def __init__(self):
-        self.raiz = None
+from main import Node
+from main import BSTree
 
-    def inserir(self, node):
-        if self.raiz is None:
-            self.raiz = Node(node)
-        else:
-            self.inserirRecursivo(self.raiz, node)
-
-    def inserirRecursivo(self, raiz, node):
-        if node < raiz.value:
-            if raiz.esquerda is None:
-                raiz.esquerda = Node(node)
-            else:
-                self.inserirRecursivo(raiz.esquerda, node)
-
-        else:
-            if raiz.direita is None:
-                raiz.direita = Node(node)
-            else:
-                self.inserirRecursivo(raiz.direita, node)
-
+class BsTreeOderna(BSTree):
     def travesiaInorder(self, raiz):
         if raiz is not None:
             self.travesiaInorder(raiz.esquerda)
@@ -45,13 +20,9 @@ class BSTree():
         retorne a estados anteriores e continue o processamento de forma controlada até que todo o percurso na árvore seja concluído. É uma técnica poderosa e eficiente 
         para percorrer estruturas de dados recursivas, como árvores.
         '''
-arvoreDesordenada = [9, 10 , 2, 5 , 8 , 0, 96, 48, 32, 99, 1, 3]
-bsTree = BSTree()
-for numero in arvoreDesordenada:
-    bsTree.inserir(numero)
-bsTree.travesiaInorder(bsTree.raiz)
-
-    
-        
-
-        
+if __name__ == "__main__":
+    arvoreDesordenada = [9, 10, 2, 5, 8, 0, 96, 48, 32, 99, 1, 3]
+    bsTree = BsTreeOderna()
+    for numero in arvoreDesordenada:
+        bsTree.inserir(numero)
+    bsTree.travesiaInorder(bsTree.raiz)
